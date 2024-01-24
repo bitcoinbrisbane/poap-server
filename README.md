@@ -1,5 +1,5 @@
 # poap-server
-A simple GET API to send POAPs that a client can call to fetch the POAP link for their consumption.
+A simple GET API to send a one time POAPs link that a client can call to fetch the POAP link for their consumption.
 
 ## Configuration
 
