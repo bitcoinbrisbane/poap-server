@@ -51,6 +51,41 @@ app.get("/", (req, res) => {
     res.send(link);
 });
 
+// app.get("/", (req, res) => {
+//     const link = req.query.link;
+
+//     if (!link) {
+//         res.status(400).send("No link provided");
+//     }
+
+//     const links = cache.get(event);
+//     if (!links) {
+//         res.status(404).send("Event not found");
+//     }
+
+//     // Select a random link
+//     // const link = links[Math.floor(Math.random() * links.length)];
+
+//     // Select first unfetched link
+//     const link = links.find((link) => link.fetched === 0);
+
+//     if (!link) {
+//         res.status(404).send("No links left");
+//     }
+
+//     // Mark link as fetched at current unix timestamp
+//     link.fetched = Math.floor(Date.now() / 1000);
+
+//     // Update the links array
+//     links[link.line] = link;
+
+//     // Update cache
+//     cache.set(event, links);
+
+//     res.send(link);
+// });
+
+
 // Load or reload the CSV into memory
 app.post("/", async (req, res) => {
     const file = req.body.file;
@@ -67,7 +102,8 @@ app.post("/", async (req, res) => {
     const txt = response.data;
 
     const links = txt.split("\n").map(line => {
-        return { url: line, fetched: 0 }
+        const redirect = `https://poap.bitcoinbrisbane.com.au?event=${event}&redirect=${line}`;
+        return { url: redirect, fetched: 0 }
     });
 
     cache.set(event, links);
