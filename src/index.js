@@ -67,9 +67,6 @@ app.post("/", async (req, res) => {
     const txt = response.data;
 
     const links = txt.split("\n").map(line => {
-        const object = { line: 0 };
-        // return object;
-
         return { url: line, fetched: 0 }
     });
 
