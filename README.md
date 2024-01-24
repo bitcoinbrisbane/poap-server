@@ -4,7 +4,7 @@ A simple GET API to send POAPs
 ## Configuration
 
 ### Environment variables
-Set the storage type. Currently only `ipfs` is supported.
+Set the storage type.
 
 - REDIS
 - MEMORY
@@ -28,6 +28,16 @@ Once you have the links.txt file
 2. Add the POAPs to your cloud storage, or IPFS, or whatever you want.
 2. Rename the txt as `links.txt`, eg `2024-pizza-day.txt`
 
+Now send a POST to the api to load the file
+
+```bash
+curl --location 'http://localhost:3000' \
+--header 'Content-Type: application/json' \
+--data '{
+    "file": "https://raw.githubusercontent.com/bitcoinbrisbane/poap-server/main/links.txt"
+}'
+```
+
 Example of `events.txt`:
 
 ```text
@@ -43,5 +53,8 @@ http://POAP.xyz/claim/xdrbbi
 ### Contributing and sponsors
 - Axios
 - Express
+- node-cache
 
 ## License
+
+CC0 1.0 Universal
