@@ -30,10 +30,14 @@ app.get("/", (req, res) => {
     }
 
     // Select a random link
-    const link = links[Math.floor(Math.random() * links.length)];
+    // const link = links[Math.floor(Math.random() * links.length)];
 
     // Select first unfetched link
-    // const link = links.find((link) => link.fetched === 0);
+    const link = links.find((link) => link.fetched === 0);
+
+    if (!link) {
+        res.status(404).send("No links left");
+    }
 
     // Mark link as fetched at current unix timestamp
     link.fetched = Math.floor(Date.now() / 1000);
