@@ -1,5 +1,5 @@
 # poap-server
-A simple GET API to send POAPs
+A simple GET API to send POAPs that a client can call to fetch the POAP link for their consumption.
 
 ## Configuration
 
@@ -37,6 +37,11 @@ curl --location 'http://localhost:3000' \
     "file": "https://raw.githubusercontent.com/bitcoinbrisbane/poap-server/main/links.txt"
 }'
 ```
+
+![image](https://github.com/bitcoinbrisbane/poap-server/assets/8411406/ef57efe2-77ee-42de-8634-208a0c2e180c)
+
+![image](https://github.com/bitcoinbrisbane/poap-server/assets/8411406/539f50de-cabe-41ae-8f22-196695a43896)
+
 
 Example of `events.txt`:
 
